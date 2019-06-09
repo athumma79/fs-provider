@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="main/tabs/listings"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="center">Listing Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <h1 class="center">{{property.name}}</h1>
+    <ion-card>
+      <ion-img src={{property.imageUrl}}></ion-img>
+    </ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-label>Location:</ion-label>
+        {{property.location}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Price:</ion-label>
+        {{property.price}}
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" (click)="edit()">Edit Listing</ion-button>
+    <ion-button expand="full" (click)="bookings()">Booking Requests</ion-button>
+  </div>
+</ion-content>

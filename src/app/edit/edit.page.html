@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="details?propId={{propId}}"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="center">Edit Listing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <div>
+      <ion-list>
+        <ion-item>
+          <ion-label>Name:</ion-label>
+          <ion-input type="text" placeholder={{property.name}} [(ngModel)]="property.name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Location:</ion-label>
+          <ion-input type="text" placeholder={{property.location}} [(ngModel)]="property.location"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Price:</ion-label>
+          <ion-input type="text" placeholder={{property.price}} [(ngModel)]="property.price"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Image URL:</ion-label>
+          <ion-input type="text" placeholder={{property.imageUrl}} [(ngModel)]="property.imageUrl"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <ion-button expand="full" (click)="update()">Save Changes</ion-button>
+    <ion-button expand="full" (click)="delete()">Delete Listing</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="main/tabs/listings"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="center">Create Property</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <div>
+      <ion-list>
+        <ion-item>
+          <ion-label>Name:</ion-label>
+          <ion-input type="text" placeholder="name" [(ngModel)]="property.name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Location:</ion-label>
+          <ion-input type="text" placeholder="location" [(ngModel)]="property.location"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Price:</ion-label>
+          <ion-input type="text" placeholder="price" [(ngModel)]="property.price"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Image URL:</ion-label>
+          <ion-input type="text" placeholder="image URL" [(ngModel)]="property.imageUrl"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <ion-button expand="full" (click)="create()">Create</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="details?propId={{propId}}"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="center">Booking Requests</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="center">
+      <ion-col class="center header" size="3">Date From</ion-col>
+      <ion-col class="center header" size="3">Date To</ion-col>
+      <ion-col class="center header" size="3">Status</ion-col>
+      <ion-col class="center header" size="3"></ion-col>
+    </ion-row>
+    <ion-row class="center" *ngFor="let booking of bookings">
+      <ion-col class="center" size="3">{{booking.dateFrom}}</ion-col>
+      <ion-col class="center" size="3">{{booking.dateTo}}</ion-col>
+      <ion-col class="center" size="3">{{booking.status}}</ion-col>
+      <ion-col class="center" size="3">
+        <ion-button expand="full" (click)="accept(booking)">Accept</ion-button>
+        <ion-button expand="full" (click)="reject(booking)">Reject</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
