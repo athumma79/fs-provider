@@ -28,11 +28,11 @@ export class DetailsPage implements OnInit {
   }
 
   edit() {
-    this.navCtrl.navigateForward("edit", {queryParams: {propId: this.propId}});
+    this.navCtrl.navigateForward("main/tabs/listings/details/edit", {queryParams: {propId: this.propId}});
   }
 
   bookings() {
-    this.navCtrl.navigateForward("bookings", {queryParams: {propId: this.propId}});
+    this.navCtrl.navigateForward("main/tabs/listings/details/bookings", {queryParams: {propId: this.propId}});
   }
 
   ngOnInit() {

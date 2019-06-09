@@ -14,19 +14,21 @@ export class ListingsPage {
 
   constructor(
     private propertyService: PropertyService,
-    private navCtrl: NavController) {
-      const provId = parseInt(localStorage.getItem("provId"));
-      this.propertyService.getProviderProperties(provId, (res) => {
-        this.properties = res;
-      });
+    private navCtrl: NavController) {}
+
+  ionViewWillEnter() {
+    const provId = parseInt(localStorage.getItem("provId"));
+    this.propertyService.getProviderProperties(provId, (res) => {
+      this.properties = res;
+    });
   }
 
   details(id: number) {
-    this.navCtrl.navigateForward("details", { queryParams: { propId: id } });
+    this.navCtrl.navigateForward("main/tabs/listings/details", { queryParams: { propId: id } });
   }
 
   create() {
-    this.navCtrl.navigateForward("create");
+    this.navCtrl.navigateForward("main/tabs/listings/create");
   }
 
 }

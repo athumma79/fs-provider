@@ -11,8 +11,7 @@ export class PropertyService {
   constructor(
     private httpClient: HttpClient,
     private navCtrl: NavController,
-    private alertController: AlertController
-  ) { }
+  ) {}
 
   getProviderProperties(provId: number, assign: Function) {
     this.httpClient.get('http://localhost:3000/properties/providers/' + provId).subscribe((response: Array<Property>) => {
@@ -28,37 +27,22 @@ export class PropertyService {
 
   create(property: Property) {
     this.httpClient.post("http://localhost:3000/properties", property).subscribe(
-      async (response: Property) => {
-        const alert = await this.alertController.create({
-          message: "your property has been successfully created",
-          buttons: ['OK']
-        });
-        await alert.present();
-        this.navCtrl.navigateForward("main/tabs/listings");
+      (response: Property) => {
+        this.navCtrl.navigateBack("main/tabs/listings");
       });
   }
 
   update(property: Property) {
     this.httpClient.patch("http://localhost:3000/properties", property).subscribe(
-      async (response: Property) => {
-        const alert = await this.alertController.create({
-          message: "your property has been successfully updated",
-          buttons: ['OK']
-        });
-        await alert.present();
-        this.navCtrl.navigateForward("details", {queryParams: {propId: property.id}});
+      (response: Property) => {
+        this.navCtrl.navigateBack("main/tabs/listings/details", {queryParams: {propId: property.id}});
       });
   }
 
   delete(propId: number) {
     this.httpClient.delete("http://localhost:3000/properties/" + propId).subscribe(
-      async (response) => {
-        const alert = await this.alertController.create({
-          message: "your property has been successfully deleted",
-          buttons: ['OK']
-        });
-        await alert.present();
-        this.navCtrl.navigateForward("main/tabs/listings");
+      (response) => {
+        this.navCtrl.navigateBack("main/tabs/listings");
       });
   }
 }

@@ -13,6 +13,27 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../listings/listings.module#ListingsPageModule'
+          },
+          {
+            path: 'create',
+            loadChildren: '../create/create.module#CreatePageModule'
+          },
+          {
+            path: 'details',
+            children: [
+              {
+                path: '',
+                loadChildren: '../details/details.module#DetailsPageModule'
+              },
+              {
+                path: 'edit',
+                loadChildren: '../edit/edit.module#EditPageModule'
+              },
+              {
+                path: 'bookings',
+                loadChildren: '../bookings/bookings.module#BookingsPageModule'
+              }
+            ]
           }
         ]
       },
@@ -27,14 +48,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/listings',
+        redirectTo: 'main/tabs/listings',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/listings',
+    redirectTo: 'main/tabs/listings',
     pathMatch: 'full'
   }
 ];
